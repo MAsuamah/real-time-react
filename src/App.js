@@ -1,3 +1,4 @@
+import './App.css';
 import { useRef, useState } from 'react';
 import * as RecordRTC from 'recordrtc';
 
@@ -92,14 +93,19 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+    <header>
+      <h1 className="header__title">Real-Time Transcription</h1>
+      <p className="header__sub-title">Try AssemblyAI's new real-time transcription endpoint!</p>
+    </header>
+      <div className="real-time-interface">
+        <p id="real-time-title" className="real-time-interface__title">Click start to begin recording!</p>
         {isRecording ? (
-          <button onClick={endTranscription}>Stop recording</button>
+          <button className="real-time-interface__button" onClick={endTranscription}>Stop recording</button>
         ) : (
-          <button onClick={generateTranscript}>Record</button>
+          <button className="real-time-interface__button" onClick={generateTranscript}>Record</button>
         )}
       </div>
-      <div>
+      <div className="real-time-interface__message">
         {transcript}
       </div>
     </div>
